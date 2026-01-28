@@ -3,31 +3,28 @@ services:
   - type: web
     name: levelup-app
     env: docker
+    plan: free
     context: LevelUp_App
-    dockerfilePath: Dockerfile  # You will need to create this Dockerfile if you don't have one, or use Render's PHP native environment
-    # Alternatively, use Render's native PHP environment (easier for beginners):
-    # env: php
-    # buildCommand: composer setup
-    # startCommand: heroku-php-apache2 public/
+    dockerfilePath: Dockerfile
     envVars:
       - key: APP_KEY
         generateValue: true
       - key: APP_DEBUG
-        value: true
+        value: "true"
       - key: APP_URL
-        value: https://levelup-app.onrender.com # You'll update this after creation
+        value: https://levelup-app.onrender.com
       - key: DB_CONNECTION
         value: mysql
       - key: DB_HOST
-        sync: false # You will enter your Aiven Host here manually in Render Dashboard
+        sync: false
       - key: DB_PORT
-        value: 16751 # Example port, copy from Aiven
+        value: "16751"
       - key: DB_DATABASE
         value: defaultdb
       - key: DB_USERNAME
-        sync: false # Enter manually
+        sync: false
       - key: DB_PASSWORD
-        sync: false # Enter manually
+        sync: false
       - key: SIMULATOR_URL
         fromService:
           type: web
@@ -36,9 +33,7 @@ services:
   # 2. The Python Simulator
   - type: web
     name: levelup-simulator
-    env: python
+    env: docker
+    plan: free
     context: wifi2ble-box-simulator-main
-    startCommand: python simulator/main.py
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.0
+    dockerfilePath: Dockerfile
