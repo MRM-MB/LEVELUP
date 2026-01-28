@@ -3,7 +3,7 @@ services:
   - type: web
     name: levelup-app
     env: docker
-    context: LevelUp_App
+    rootDir: LevelUp_App
     dockerfilePath: Dockerfile
     envVars:
       - key: APP_KEY
@@ -34,5 +34,5 @@ services:
   - type: web
     name: levelup-simulator
     env: docker
-    context: wifi2ble-box-simulator-main
+    rootDir: wifi2ble-box-simulator-main
     dockerfilePath: Dockerfile
