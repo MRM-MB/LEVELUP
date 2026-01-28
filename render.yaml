@@ -24,11 +24,11 @@ services:
         sync: false
       - key: DB_PASSWORD
         sync: false
-      - key: SIMULATOR_URL
+      - key: WIFI2BLE_HOST
         fromService:
           type: web
           name: levelup-simulator
-          property: url
+          property: host
 
   # 2. The Python Simulator
   - type: web
