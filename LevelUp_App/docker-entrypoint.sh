@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+# Generate APP_KEY if it's missing or invalid (Render's generateValue isn't always Laravel compatible)
+if [ -z "$APP_KEY" ] || [[ "$APP_KEY" != "base64:"* ]]; then
+    echo "APP_KEY is missing or invalid. Generating a new one..."
+    export APP_KEY=$(php artisan key:generate --show)
+fi
+
 # Setup SQLite database if using sqlite
 if [ "$DB_CONNECTION" = "sqlite" ]; then
     echo "Using SQLite database..."
