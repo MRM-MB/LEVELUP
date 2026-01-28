@@ -1,6 +1,7 @@
 services:
   # 1. The Laravel Application
   - type: web
+    plan: free
     name: levelup-app
     env: docker
     rootDir: LevelUp_App
@@ -32,6 +33,7 @@ services:
 
   # 2. The Python Simulator
   - type: web
+    plan: free
     name: levelup-simulator
     env: docker
     rootDir: wifi2ble-box-simulator-main
