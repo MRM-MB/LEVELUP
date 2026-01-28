@@ -14,17 +14,7 @@ services:
       - key: APP_URL
         value: https://levelup-app.onrender.com
       - key: DB_CONNECTION
-        value: mysql
-      - key: DB_HOST
-        sync: false
-      - key: DB_PORT
-        value: "16751"
-      - key: DB_DATABASE
-        value: defaultdb
-      - key: DB_USERNAME
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
+        value: sqlite
       - key: WIFI2BLE_HOST
         fromService:
           type: web
