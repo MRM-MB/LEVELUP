@@ -1,0 +1,74 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    image: levelup-app
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "5173:5173"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "1"
+    env_file:
+      - .env.docker
+    depends_on:
+      mysql:
+        condition: service_healthy
+      simulator:
+        condition: service_started
+    networks:
+      - levelup
+
+  web:
+    image: nginx:1.27
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - levelup
+
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    env_file:
+      - .env.docker
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - levelup
+
+  simulator:
+    build:
+      context: ../wifi2ble-box-simulator-main
+      dockerfile: Dockerfile
+    image: wifi2ble-simulator
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../wifi2ble-box-simulator-main/data:/app/data
+    networks:
+      - levelup
+
+volumes:
+  mysql-data:
+
+networks:
+  levelup:
+    driver: bridge

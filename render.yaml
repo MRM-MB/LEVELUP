@@ -1,0 +1,44 @@
+services:
+  # 1. The Laravel Application
+  - type: web
+    name: levelup-app
+    env: docker
+    context: LevelUp_App
+    dockerfilePath: Dockerfile  # You will need to create this Dockerfile if you don't have one, or use Render's PHP native environment
+    # Alternatively, use Render's native PHP environment (easier for beginners):
+    # env: php
+    # buildCommand: composer setup
+    # startCommand: heroku-php-apache2 public/
+    envVars:
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_DEBUG
+        value: true
+      - key: APP_URL
+        value: https://levelup-app.onrender.com # You'll update this after creation
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false # You will enter your Aiven Host here manually in Render Dashboard
+      - key: DB_PORT
+        value: 16751 # Example port, copy from Aiven
+      - key: DB_DATABASE
+        value: defaultdb
+      - key: DB_USERNAME
+        sync: false # Enter manually
+      - key: DB_PASSWORD
+        sync: false # Enter manually
+      - key: SIMULATOR_URL
+        fromService:
+          type: web
+          name: levelup-simulator
+
+  # 2. The Python Simulator
+  - type: web
+    name: levelup-simulator
+    env: python
+    context: wifi2ble-box-simulator-main
+    startCommand: python simulator/main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0

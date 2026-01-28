@@ -1,0 +1,55 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Run main.py with HTTP",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/simulator/main.py",
+            "args": [
+                "--port", "8000",
+                "--log-level", "INFO"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Run main.py with HTTPS",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/simulator/main.py",
+            "args": [
+                "--port", "8443",
+                "--https",
+                "--certfile", "${workspaceFolder}/config/cert.pem",
+                "--keyfile", "${workspaceFolder}/config/key.pem",
+                "--log-level", "WARNING"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Run simple_api_test.py with HTTP",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tests/simple_api_test.py",
+            "args": [
+                "--port", "8000"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Run simple_api_test.py with HTTPS",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tests/simple_api_test.py",
+            "args": [
+                "--port", "8443",
+                "--https"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

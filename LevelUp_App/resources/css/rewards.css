@@ -1,0 +1,880 @@
+/* ===========================================
+                 REWARDS PAGE
+   =========================================== */
+
+/* Navigation */
+.rewards-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    background: #8D9EFF;
+    border-radius: 0;
+    width: 100vw;
+}
+
+.rewards-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.rewards-nav-link i {
+    font-size: 1.1rem;
+}
+
+.rewards-nav-link:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.rewards-nav-link.active {
+    background: white;
+    color: #6C4AB6;
+}
+
+/* Rewards Content */
+
+.rewards-content {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.rewards-content h2 {
+    margin-bottom: 1.5rem;
+    font-family: var(--font-secondary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===========================================
+                REWARD CARDS
+   =========================================== */
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.reward-card {
+    position: relative;
+    background: linear-gradient(135deg, white 0%, #BCC7E8 100%);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.reward-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(108, 74, 182, 0.2);
+}
+
+/* Save Button */
+
+.save-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.save-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.save-btn .heart-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Reward Card Content */
+
+.reward-image {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.reward-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reward-content {
+    padding: 0.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.reward-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-secondary);
+}
+
+.content .reward-description {
+    color: #666;
+    font-size: 0.8rem !important;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+}
+
+.content .reward-points {
+    color: #6C4AB6;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+/* Redeem Button */
+
+.redeem-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    color: #6C4AB6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.125rem;
+    margin-top: auto;
+}
+
+.redeem-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(108, 74, 182, 0.3);
+}
+
+.redeem-btn.can-redeem {
+    background: #6C4AB6;
+    color: white;
+}
+
+.redeem-btn.can-redeem:hover {
+    box-shadow: 0 4px 15px rgba(108, 74, 182, 0.3);
+}
+
+.btn-text {
+    font-size: 1rem;
+}
+
+.points-required {
+    font-size: 0.375rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.redeem-btn.can-redeem .btn-text {
+    font-size: 1rem;
+}
+
+.redeem-btn.can-redeem .points-required {
+    font-size: 0.35rem;
+}
+
+/* No Saved Rewards Message */
+
+.no-saved-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #666;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 2px dashed rgba(108, 74, 182, 0.3);
+}
+
+/* ===========================================
+             ADMIN CONTROLS
+   =========================================== */
+
+.admin-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    z-index: 10;
+}
+
+.admin-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.admin-btn.edit-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.admin-btn.edit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.admin-btn.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.admin-btn.delete-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.admin-add-btn {
+    background-color: #27ae60 !important;
+    color: white !important;
+}
+
+.admin-add-btn:hover {
+    background-color: #229954 !important;
+}
+
+.reward-card {
+    position: relative;
+}
+
+.delete-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.delete-form button {
+    margin: 0;
+    padding: 0;
+}
+
+/* ===========================================
+         ADMIN REWARDS MANAGEMENT
+   =========================================== */
+
+/* Reward List Styles */
+.reward-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reward-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.reward-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reward-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.reward-image-small {
+    flex-shrink: 0;
+}
+
+.reward-image-small img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.reward-details h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 600;
+}
+
+.reward-details p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.reward-details p[style*="color: #007bff"] {
+    color: #007bff !important;
+    font-weight: bold;
+}
+
+.reward-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Admin Form Styles */
+.admin-dashboard .login-data textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.admin-dashboard .login-data textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(108, 74, 182, 0.1);
+}
+
+.admin-dashboard .login-data input[type="file"] {
+    padding: 10px;
+    height: auto;
+    border: 2px dashed var(--color-border);
+    background: #fafafa;
+}
+
+.admin-dashboard .login-data input[type="file"]:hover {
+    border-color: var(--color-primary);
+    background: #f0f8ff;
+}
+
+/* Archive Toggle Button */
+#toggleArchivedBtn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Archived Section */
+#archivedRewardsSection {
+    border-top: 2px solid #ddd;
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+/* ===========================================
+               RESPONSIVE DESIGN
+   =========================================== */
+@media (max-width: 768px) {
+    .reward-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .reward-info {
+        justify-content: flex-start;
+    }
+
+    .reward-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .reward-image-small img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .reward-details h4 {
+        font-size: 1rem;
+    }
+
+    .reward-details p {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .reward-item {
+        padding: 0.75rem;
+    }
+
+    .reward-info {
+        gap: 0.75rem;
+    }
+
+    .reward-details h4 {
+        font-size: 0.95rem;
+    }
+
+    .admin-dashboard .login-data input,
+    .admin-dashboard .login-data textarea {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rewards-nav {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    .rewards-nav-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .rewards-nav-link i {
+        font-size: 1rem;
+    }
+
+    .rewards-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .rewards-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .rewards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .reward-card h3 {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rewards-nav {
+        gap: 0.2rem;
+        padding: 0.4rem;
+    }
+
+    .rewards-nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .rewards-nav-link i {
+        font-size: 0.9rem;
+    }
+
+    .rewards-content {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .rewards-content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .rewards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .reward-image {
+        height: 90px;
+    }
+
+    .reward-content {
+        padding: 0.625rem;
+    }
+
+    .no-saved-message {
+        font-size: 1rem;
+        padding: 2rem 1rem;
+    }
+}
+
+ /* ===========================================
+           HISTORY TAB
+     =========================================== */
+
+  .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.75rem;
+  }
+
+  /* Table Header */
+  .history-table thead {
+      background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+      border-bottom: 2px solid #6C4AB6;
+  }
+
+  .history-table thead th {
+      padding: 12px 16px;
+      text-align: center;
+      font-weight: 700;
+      color: #333;
+      border-right: 1px solid #dee2e6;
+      border-bottom: 2px solid #6C4AB6;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+  }
+
+  .history-table thead th:last-child {
+      border-right: none;
+  }
+
+  .history-table thead th:first-child {
+      text-align: center;
+      width: 60px;
+  }
+
+  /* Table Body */
+  .history-table tbody tr {
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid #dee2e6;
+  }
+
+  .history-table tbody tr:nth-child(even) {
+      background: #f8f9fa;
+  }
+
+  .history-table tbody tr:nth-child(odd) {
+      background: white;
+  }
+
+  .history-table tbody tr:hover {
+      background: #e7f1ff !important;
+      cursor: pointer;
+  }
+
+  /* Table Cells */
+  .history-table tbody td {
+      padding: 14px 16px;
+      color: #495057;
+      border-right: 1px solid #e9ecef;
+      vertical-align: middle;
+  }
+
+  .history-table tbody td:last-child {
+      border-right: none;
+  }
+
+  .history-table tbody td:first-child {
+      text-align: center;
+      font-weight: 600;
+      color: #6C4AB6;
+      background: rgba(108, 74, 182, 0.05);
+  }
+
+  .history-table tbody td:nth-child(2) {
+      font-weight: 600;
+      color: #212529;
+  }
+
+  .history-table tbody td:nth-child(3) {
+      font-weight: 500;
+      color: #6C4AB6;
+      font-size: 0.85rem;
+  }
+
+  /* Responsive Table */
+  @media (max-width: 768px) {
+      .history-container {
+          padding: 0.5rem;
+      }
+
+      .history-table {
+          font-size: 0.85rem;
+      }
+
+      .history-table thead th,
+      .history-table tbody td {
+          padding: 10px 12px;
+      }
+
+      .history-table thead th:first-child {
+          width: 40px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .history-table {
+          font-size: 0.75rem;
+      }
+
+      .history-table thead th,
+      .history-table tbody td {
+          padding: 8px 10px;
+      }
+  }
+  /* Shared helper text */
+.desk-help-text {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Multi-selects on desk tab */
+.desk-multi-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* Search form spacing */
+.desk-search-form {
+  margin-bottom: 1.5rem;
+}
+
+/* Compact desk cards */
+.desk-cards .desk-card {
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.desk-info-row {
+  font-size: 0.9rem;
+}
+
+.desk-serial {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.desk-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+.desk-status {
+  font-style: italic;
+}
+
+/* Keep actions small */
+.desk-actions .loginpage-btn.btn-compact button {  
+  padding: 7px 12px;
+}
+
+/* === DESK CLEANING TAB === */
+
+/* Scrollable list container */
+.desk-list-scroll {
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  background: #fdfdfd;
+}
+
+/* Select-all row */
+.desk-select-all-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.4rem;
+}
+
+.desk-select-all-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Small native-style checkboxes */
+.desk-select-all-label input[type="checkbox"],
+.desk-checkbox-row input[type="checkbox"] {
+    width: 13px;
+    height: 28px;
+    cursor: pointer;
+
+    /* Small square */
+    border: 2px solid #444;
+    border-radius: 3px;
+    background: #fff;
+    display: inline-block;
+    position: relative;
+ }
+/* Checked state (purple background + white tick) */
+.desk-select-all-label input[type="checkbox"]:checked,
+.desk-checkbox-row input[type="checkbox"]:checked {
+    background: #5d3dfd;
+    border-color: #5d3dfd;
+}
+.desk-select-all-label span {
+    position: relative;
+    top: -7px;
+}
+
+.desk-select-all-label input[type="checkbox"]:checked::after,
+.desk-checkbox-row input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    width: 4px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Desk rows in the list */
+.desk-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.desk-checkbox-row:last-child {
+  border-bottom: none;
+}
+
+.desk-checkbox-row input.desk-checkbox {
+  margin-top: 2px;
+}
+
+.desk-checkbox-info {
+  flex: 1;
+}
+
+.desk-checkbox-name {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.desk-checkbox-meta {
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.desk-checkbox-serial {
+  font-family: monospace;
+}
+
+.desk-checkbox-pos {
+  opacity: 0.9;
+}
+
+/* Right column: confirm button spacing */
+.desk-bulk-submit {
+  margin-top: 1rem;
+}
+
+.desk-register-wrapper {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fdfdfd;
+  padding: 0.25rem 0.4rem;   
+  margin-bottom: 0.5rem;
+}
+
+.desk-register-select {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0;
+  background: transparent;
+  font-size: 0.85rem;
+}
+
+.desk-register-actions {
+    margin-top: 6rem; 
+}
+
+/* Nicer select input, matching your form styling */
+.select-styled {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f7f7f7;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.select-styled:focus {
+    outline: none;
+    border-color: #6c4cf7; /* purple like your theme */
+    box-shadow: 0 0 0 2px rgba(108, 76, 247, 0.25);
+    background: white;
+}
