@@ -27,9 +27,9 @@ if [ "$DB_CONNECTION" = "sqlite" ]; then
     fi
 fi
 
-# Run migrations (force is needed in production)
-echo "Running migrations..."
-php artisan migrate --force
+# Run migrations and seed default data (force is needed in production)
+echo "Running migrations and seeders..."
+php artisan migrate --force --seed
 
 # Optimize caches
 echo "Caching config..."
