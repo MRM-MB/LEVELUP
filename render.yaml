@@ -15,6 +15,8 @@ services:
         value: https://levelup-app.onrender.com
       - key: DB_CONNECTION
         value: sqlite
+      - key: DB_DATABASE
+        value: /tmp/database.sqlite
       - key: WIFI2BLE_HOST
         fromService:
           type: web

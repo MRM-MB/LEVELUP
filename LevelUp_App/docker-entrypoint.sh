@@ -10,9 +10,14 @@ fi
 # Setup SQLite database if using sqlite
 if [ "$DB_CONNECTION" = "sqlite" ]; then
     echo "Using SQLite database..."
-    if [ ! -f /var/www/html/database/database.sqlite ]; then
+    DB_PATH="${DB_DATABASE:-/var/www/html/database/database.sqlite}"
+    DB_DIR=$(dirname "$DB_PATH")
+    if [ ! -d "$DB_DIR" ]; then
+        mkdir -p "$DB_DIR"
+    fi
+    if [ ! -f "$DB_PATH" ]; then
         echo "Creating database.sqlite..."
-        touch /var/www/html/database/database.sqlite
+        touch "$DB_PATH"
     fi
 fi
 
@@ -34,13 +39,13 @@ echo "Fixing permissions..."
 chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 if [ "$DB_CONNECTION" = "sqlite" ]; then
-    chown -R www-data:www-data /var/www/html/database
-    
-    # Ensure the parent directory is writable too just in case (though chown generally fixes it)
-    chmod -R 777 /var/www/html/database
-    
-    # Also ensure the file itself is 666 (readable/writable by everyone) just to be absolutely sure
-    chmod 666 /var/www/html/database/database.sqlite
+    DB_PATH="${DB_DATABASE:-/var/www/html/database/database.sqlite}"
+    DB_DIR=$(dirname "$DB_PATH")
+    chown -R www-data:www-data "$DB_DIR"
+
+    # Ensure directory and file are writable for the web server
+    chmod -R 777 "$DB_DIR"
+    chmod 666 "$DB_PATH"
 fi
 
 # Start Apache in foreground
