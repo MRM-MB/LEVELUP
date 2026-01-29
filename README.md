@@ -1,4 +1,4 @@
-# LevelUp
+# LevelUp ⬆️
 
 LevelUp is a Group 3 web app that guides users through healthy sit–stand cycles using Cornell ergonomics research, awards points that can be redeemed for gift cards, and can optionally integrate hardware features like LED alerts and display text on an OLED display via a Raspberry Pi Pico W.
 
