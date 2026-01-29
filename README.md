@@ -26,6 +26,29 @@ Once the application is running and seeded, you can log in with the following cr
 | **Admin** | `admin` | `LevelUp!Demo#2026` |
 | **User** | `maxmust123` | `LevelUp!User#2026` |
 
+## 🧪 Live Demo (Render)
+
+We are currently hosting **both** the LevelUp app and the Wifi2Ble simulator.
+
+Try the hosted demo here: https://levelup-app-div9.onrender.com/
+
+**What you can do in the demo**
+- Log in as admin or user
+- View dashboards, rewards, stats, and profiles
+- Use the admin control dashboard to create/edit users and manage desks
+- Register and assign desks from the simulator
+- Run sit/stand cycles using the simulator API
+
+**What the demo does not include**
+- Pico W hardware integration (OLED, RGB LED, pause button)
+
+**Important demo notes**
+- You can’t use the hosted demo and a Pico W at the same time (the demo can’t reach local hardware).
+- Demo data resets periodically (ephemeral storage). This demo is for demonstration only.
+
+**To use a Pico W**
+Run the Laravel app locally or on a server in the same network as the Pico W, then set `WIFI2BLE_BASE_URL` to the Pico W’s URL. See [SETUP.md](SETUP.md) for the Pico W setup steps.
+
 ## Wifi2ble Simulator
 
 The wifi2ble box simulator exposes the same API as a LINAK desk controller so you can test commands locally without moving a real desk. Run it when you want to validate commands, telemetry, and logging.
