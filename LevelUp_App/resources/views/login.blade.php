@@ -51,6 +51,12 @@
                         <button type="submit">Log In</button>
                     </div>
                 </form>
+
+                <div class="alert" role="alert" style="margin-top:16px; border:1px dashed rgba(255,255,255,0.3); padding:12px; font-size:0.95rem;">
+                    <strong>Demo credentials</strong><br>
+                    Admin: <strong>admin</strong> / <strong>admin123</strong><br>
+                    User: <strong>maxmust123</strong> / <strong>password</strong>
+                </div>
             </div>
         </div>
     </div>

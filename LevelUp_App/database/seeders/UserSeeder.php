@@ -38,8 +38,8 @@ class UserSeeder extends Seeder
             'password'          => Hash::make('admin123'),
             'sitting_position'  => 73,
             'standing_position' => 110,
-            'total_points'      => 350,
-            'daily_points'      => 80,
+            'total_points'      => 0,
+            'daily_points'      => 0,
             'last_points_date'  => now()->toDateString(),
             'last_daily_reset'  => now(),
             'desk_id'           => $adminDeskId,
@@ -54,8 +54,8 @@ class UserSeeder extends Seeder
             'password'          => Hash::make('password'),
             'sitting_position'  => 75,
             'standing_position' => 105,
-            'total_points'      => 320,
-            'daily_points'      => 40,
+            'total_points'      => 0,
+            'daily_points'      => 0,
             'last_points_date'  => now()->toDateString(),
             'desk_id'           => $userDeskId,   // may be the same as admin if only one desk
         ]);
