@@ -14,7 +14,9 @@ if [ "$DB_CONNECTION" = "sqlite" ]; then
         echo "Creating database.sqlite..."
         touch /var/www/html/database/database.sqlite
     fi
-    chown www-data:www-data /var/www/html/database/database.sqlite
+    # SQLite needs write access to the directory to create journal/wal files
+    chown -R www-data:www-data /var/www/html/database
+    chmod -R 775 /var/www/html/database
 fi
 
 # Run migrations (force is needed in production)
