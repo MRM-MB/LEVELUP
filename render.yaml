@@ -12,7 +12,9 @@ services:
       - key: APP_DEBUG
         value: "true"
       - key: APP_URL
-        value: https://levelup-app.onrender.com
+        value: https://levelup-app-div9.onrender.com
+      - key: ASSET_URL
+        value: https://levelup-app-div9.onrender.com
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE

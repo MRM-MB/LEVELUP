@@ -7,6 +7,12 @@ if [ -z "$APP_KEY" ] || [[ "$APP_KEY" != "base64:"* ]]; then
     export APP_KEY=$(php artisan key:generate --show)
 fi
 
+# Ensure APP_URL/ASSET_URL match the Render service URL if provided
+if [ -n "$RENDER_EXTERNAL_URL" ]; then
+    export APP_URL="$RENDER_EXTERNAL_URL"
+    export ASSET_URL="$RENDER_EXTERNAL_URL"
+fi
+
 # Setup SQLite database if using sqlite
 if [ "$DB_CONNECTION" = "sqlite" ]; then
     echo "Using SQLite database..."
