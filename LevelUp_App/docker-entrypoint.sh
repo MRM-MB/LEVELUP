@@ -32,9 +32,15 @@ php artisan view:cache
 # This ensures www-data owns everything created by root during startup
 echo "Fixing permissions..."
 chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
 if [ "$DB_CONNECTION" = "sqlite" ]; then
     chown -R www-data:www-data /var/www/html/database
-    chmod -R 775 /var/www/html/database
+    
+    # Ensure the parent directory is writable too just in case (though chown generally fixes it)
+    chmod -R 777 /var/www/html/database
+    
+    # Also ensure the file itself is 666 (readable/writable by everyone) just to be absolutely sure
+    chmod 666 /var/www/html/database/database.sqlite
 fi
 
 # Start Apache in foreground
