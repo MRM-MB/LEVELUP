@@ -21,6 +21,11 @@ services:
         value: /tmp/database.sqlite
       - key: WIFI2BLE_API_KEY
         value: E9Y2LxT4g1hQZ7aD8nR3mWx5P0qK6pV7
+      - key: WIFI2BLE_HOSTPORT
+        fromService:
+          type: web
+          name: levelup-simulator
+          property: hostport
       - key: WIFI2BLE_HOST
         fromService:
           type: web

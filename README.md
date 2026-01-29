@@ -23,8 +23,8 @@ Once the application is running and seeded, you can log in with the following cr
 
 | Role | Username | Password |
 |------|----------|----------|
-| **Admin** | `admin` | `admin123` |
-| **User** | `maxmust123` | `password` |
+| **Admin** | `admin` | `LevelUp!Demo#2026` |
+| **User** | `maxmust123` | `LevelUp!User#2026` |
 
 ## Wifi2ble Simulator
 
