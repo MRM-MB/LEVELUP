@@ -116,7 +116,7 @@ See [SETUP.md](SETUP.md) for flashing instructions via Thonny.
     </tr>
     <tr>
       <td><b>Lara</b></td>
-      <td>-</td>
+      <td><a href="https://github.com/Lara-Ghi">Lara-Ghi</a></td>
     </tr>
     <tr>
       <td><b>Mats</b></td>
@@ -124,7 +124,7 @@ See [SETUP.md](SETUP.md) for flashing instructions via Thonny.
     </tr>
     <tr>
       <td><b>Manish</b></td>
-      <td><a href="https://github.com/Manish-SDU">Manish-SDU</a></td>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
