@@ -14,9 +14,6 @@ if [ "$DB_CONNECTION" = "sqlite" ]; then
         echo "Creating database.sqlite..."
         touch /var/www/html/database/database.sqlite
     fi
-    # SQLite needs write access to the directory to create journal/wal files
-    chown -R www-data:www-data /var/www/html/database
-    chmod -R 775 /var/www/html/database
 fi
 
 # Run migrations (force is needed in production)
@@ -30,6 +27,15 @@ echo "Caching routes..."
 php artisan route:cache
 echo "Caching views..."
 php artisan view:cache
+
+# Fix permissions again after migrations and cache creation
+# This ensures www-data owns everything created by root during startup
+echo "Fixing permissions..."
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+if [ "$DB_CONNECTION" = "sqlite" ]; then
+    chown -R www-data:www-data /var/www/html/database
+    chmod -R 775 /var/www/html/database
+fi
 
 # Start Apache in foreground
 echo "Starting Apache..."
