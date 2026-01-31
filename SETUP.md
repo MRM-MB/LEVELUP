@@ -1,4 +1,4 @@
-# LevelUp Setup Guide
+# LevelUp Local Setup Guide
 
 This document consolidates everything required to run LevelUp locally, in Docker, and with the optional Pico W display. Use it as the single source of truth for ports, environment variables, and testing commands.
 
