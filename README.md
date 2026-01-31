@@ -13,7 +13,7 @@ LevelUp is a Group 3 web app that guides users through healthy sit–stand cycle
 - Daily point tracking with anti-gaming rules and feedback colors
 - Optional Rasberry Pi Pico W board integration (OLED + RGB LED status display)
 
-## 🚀 Getting Started
+## Getting Started
 
 For full setup instructions including local PHP, Docker stack, simulator ports, and Pico W hardware flashing, please refer to the [SETUP.md](SETUP.md) guide.
 
