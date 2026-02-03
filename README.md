@@ -26,7 +26,7 @@ Once the application is running and seeded, you can log in with the following cr
 | **Admin** | `admin` | `LevelUp!Demo#2026` |
 | **User** | `maxmust123` | `LevelUp!User#2026` |
 
-## 🧪 Live Demo (Render)
+## 🧪 Live Demo
 
 We are currently hosting **both** the LevelUp app and the Wifi2Ble simulator. Open the simulator first and keep it open (https://levelup-simulator.onrender.com/), then open https://levelup-app-div9.onrender.com/ (the LevelUp app), which reads from the hosted simulator.
 
