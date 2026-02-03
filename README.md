@@ -85,7 +85,7 @@ The wifi2ble box simulator exposes the same API as a LINAK desk controller so yo
 
 - **OLED display** – Shows the active user greeting, total points, and real-time sit/stand alerts so you can demo LevelUp away from the browser.
 - **RGB LED** – Glows purple while sitting, green while standing, and dims or pulses when the timer is paused.
-- **Potentiometer** – Connected to the Pico’s ADC to modulate LED brightness; turn the knob to match the lighting of your workspace or make demos camera-friendly.
+- **Potentiometer** – Connected to the Pico’s ADC to modulate LED brightness, turn the knob to match the lighting of your workspace or make demos camera-friendly.
 - **Pause button (GP10)** – Mirrors the in-app pause/resume toggle so you can control the timer from the hardware without touching the UI.
 
 See [SETUP.md](SETUP.md) for flashing instructions via Thonny.
