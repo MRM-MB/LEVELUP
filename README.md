@@ -28,9 +28,7 @@ Once the application is running and seeded, you can log in with the following cr
 
 ## 🧪 Live Demo (Render)
 
-We are currently hosting **both** the LevelUp app and the Wifi2Ble simulator. Open the simulator first and keep it open (https://levelup-simulator.onrender.com/), then open the LevelUp app and it will read from the simulator.
-
-Try the hosted demo here: https://levelup-app-div9.onrender.com/
+We are currently hosting **both** the LevelUp app and the Wifi2Ble simulator. Open the simulator first and keep it open (https://levelup-simulator.onrender.com/), then open https://levelup-app-div9.onrender.com/ (the LevelUp app), which reads from the hosted simulator.
 
 **What you can do in the demo**
 - Log in as admin or user
@@ -42,7 +40,7 @@ Try the hosted demo here: https://levelup-app-div9.onrender.com/
 **What the demo does not include**
 - Pico W hardware integration (OLED, RGB LED, pause button)
 
-**Important demo notes**
+**Demo Limitations**
 - You can’t use the hosted demo and a Pico W at the same time (the demo can’t reach local hardware).
 - Demo data resets periodically (ephemeral storage), including demo users created through the admin account (see credentials above).
 
