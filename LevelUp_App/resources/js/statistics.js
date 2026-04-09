@@ -25,12 +25,14 @@ function initBarChart() {
                 {
                     label: 'Sitting Time',
                     data: [sittingTime],
-                    backgroundColor: '#B9E0FF'
+                    backgroundColor: '#6C4AB6',
+                    hoverBackgroundColor: '#8D72E1'
                 },
                 {
                     label: 'Standing Time',
                     data: [standingTime],
-                    backgroundColor: '#8D9EFF'
+                    backgroundColor: '#10B981',
+                    hoverBackgroundColor: '#34D399'
                 }
             ]
         },
@@ -146,8 +148,12 @@ function initPieChart() {
             datasets: [{
                 data: data,
                 backgroundColor: [
-                    '#B9E0FF',
-                    '#8D9EFF'
+                    '#6C4AB6',
+                    '#10B981'
+                ],
+                hoverBackgroundColor: [
+                    '#8D72E1',
+                    '#34D399'
                 ],
                 borderWidth: 2
             }]
